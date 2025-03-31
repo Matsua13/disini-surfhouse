@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Surf Level Guide - Disini Surfhouse</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Discover your perfect surf level at Disini Surfhouse. Our Surf Level Guide helps you progress from beginner to pro with expert advice and tips." />
+  <meta name="keywords" content="Surf Level Guide, Surf Coaching, Beginner, Improver, Intermediate, Advanced, Pro, Disini Surfhouse, Bali Surf" />
+  <link rel="canonical" href="https://www.disinisurfhouse.com/surf-level-guide" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Surf Level Guide - Disini Surfhouse" />
+  <meta property="og:description" content="Discover your perfect surf level at Disini Surfhouse. Our comprehensive guide helps you progress from beginner to pro with expert tips and techniques." />
+  <meta property="og:image" content="https://www.disinisurfhouse.com/images/og-surf-level-guide.jpg" />
+  <meta property="og:url" content="https://www.disinisurfhouse.com/surf-level-guide" />
+  <meta property="og:type" content="website" />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Surf Level Guide - Disini Surfhouse" />
+  <meta name="twitter:description" content="Discover your perfect surf level at Disini Surfhouse. Our guide helps you progress from beginner to pro with expert tips and techniques." />
+  <meta name="twitter:image" content="https://www.disinisurfhouse.com/images/og-surf-level-guide.jpg" />
+  
+  <!-- Importation de la police Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome pour les icônes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <style>
+    /* Importation de la police moderne */
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #ffffff; /* Fond blanc */
+      color: #333;
+      padding: 20px;
+    }
+
+    /* ---------------------- */
+    /* Header & Navigation    */
+    /* ---------------------- */
+    header {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      padding: 1rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+    nav .logo a {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #4c3321;
+      text-decoration: none;
+    }
+    nav .nav-links a {
+      color: #4c3321;
+      text-decoration: none;
+      margin-left: 1rem;
+      transition: text-decoration 0.3s;
+    }
+    nav .nav-links a:hover {
+      text-decoration: underline;
+    }
+    /* Bouton Hamburger */
+    .hamburger {
+      display: none;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    /* ---------------------- */
+    /* Footer                 */
+    /* ---------------------- */
+    footer {
+      text-align: center;
+      padding: 1rem 20px;
+      border-top: 1px solid #e0e0e0;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+    footer .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    footer .social-icons a {
+      color: #777;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+      text-decoration: none;
+    }
+    footer .social-icons a:hover {
+      color: #5b3607;
+    }
+
+    /* ---------------------- */
+    /* Bouton WhatsApp        */
+    /* ---------------------- */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 5rem;
+      right: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #22c55e;
+      border-radius: 50%;
+      width: 4rem;
+      height: 4rem;
+      color: #fff;
+      text-decoration: none;
+      z-index: 100;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+    .whatsapp-btn:hover {
+      background-color: #16a34a;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    .whatsapp-btn i {
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    /* ---------------------- */
+    /* Section Principale     */
+    /* ---------------------- */
+    /* Style de "card" pour chaque vignette avec chevauchement */
+    .level-container {
+      position: relative;
+      width: 90%;
+      margin: 40px auto;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: row;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    /* Superposition verticale : chaque vignette se chevauche légèrement la précédente */
+    .level-container + .level-container {
+      margin-top: -20px;
+    }
+    /* Décalage horizontal alterné pour un effet dynamique */
+    .level-container:nth-child(odd) {
+      left: 10px;
+    }
+    .level-container:nth-child(even) {
+      left: -10px;
+    }
+    .level-container:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    .half {
+      flex: 1;
+      padding: 20px;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    /* Partie visuelle avec image de fond */
+    .post-bg-all {
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      position: relative;
+    }
+    .all-bg-right {
+      background-position: right;
+    }
+    .all-bg-left {
+      background-position: left;
+    }
+    /* Couleurs de fond pour le contenu textuel */
+    .half-color {
+      background-color: #ffffff;
+      border-right: 1px solid #e0e0e0;
+    }
+    .half-color-invert {
+      background-color: #f7f7f7;
+      border-left: 1px solid #e0e0e0;
+    }
+    /* Titres et textes */
+    .level-title {
+      font-size: 1.75em;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .level-description {
+      font-size: 1em;
+      color: #555;
+      line-height: 1.6;
+    }
+    .image-caption {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background-color: rgba(0,0,0,0.5);
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+    /* ---------------------- */
+    /* Animations             */
+    /* ---------------------- */
+    .level-container,
+    .half,
+    .level-title,
+    .level-description,
+    .post-bg-all {
+      opacity: 0;
+      animation: fadeIn 0.8s forwards;
+    }
+    .level-container {
+      animation-delay: 0.3s;
+    }
+    .half {
+      animation-delay: 0.5s;
+    }
+    .level-title {
+      animation-delay: 0.7s;
+    }
+    .level-description {
+      animation-delay: 0.9s;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ---------------------- */
+    /* Responsive             */
+    /* ---------------------- */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      /* Affichage du bouton hamburger */
+      .hamburger {
+        display: block;
+      }
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        margin-top: 1rem;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .level-container {
+        flex-direction: column;
+      }
+      .level-container:nth-child(odd),
+      .level-container:nth-child(even) {
+        left: 0;
+      }
+      .whatsapp-btn {
+        bottom: 2rem;
+        right: 2rem;
+        width: 3.5rem;
+        height: 3.5rem;
+      }
+      .whatsapp-btn i {
+        font-size: 1.8rem;
+      }
+    }
+    @media (max-width: 480px) {
+      header {
+        padding: 1rem;
+      }
+      nav ul {
+        gap: 0.5rem;
+      }
+      .level-title {
+        font-size: 1.5em;
+      }
+      .level-description {
+        font-size: 0.9em;
+      }
+      .level-container {
+        margin: 20px auto;
+      }
+    }
+  </style>
+</head>
+<body>
+   <!-- Header / Navbar -->
+   <header>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <a href="index.html">𝖣𝖨𝖲𝖨𝖭𝖨 𝖲𝖴𝖱𝖥𝖧𝖮𝖴𝖲𝖤</a>
+        </div>
+        <!-- Bouton Hamburger pour mobile -->
+        <div class="hamburger"><i class="fas fa-bars"></i></div>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="surf-coaching.html">Surf Coaching</a>
+          <a href="accommodations.html">Accommodations</a>
+          <a href="activities.html">Activities</a>
+          <a href="contact-us.html">Contact Us</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="level-container">
+      <div class="half post-bg-all all-bg-right" style="background-image: url('images/beginner.JPG');">
+        <div class="image-caption">Beginner Level</div>
+      </div>
+      <div class="half half-color-invert">
+        <h2 class="level-title">Beginner Level 🌊</h2>
+        <p class="level-description">
+          This is for you if:
+          <ul>
+            <li>You have little to no surfing experience.</li>
+            <li>You want to learn how to paddle, pop up, and ride your first waves.</li>
+          </ul>
+          What to Expect:
+          We’ll teach you the basics! From paddling and popping up to catching your very first waves safely. You’ll receive step-by-step guidance, personalized feedback, and tons of encouragement.
+          <br /><br />
+          Goal: Ride small, gentle whitewater waves independently and build confidence in the water.
+        </p>
+      </div>
+    </div>
+
+    <div class="level-container">
+      <div class="half half-color">
+        <h2 class="level-title">Improver Level 🏄‍♂️</h2>
+        <p class="level-description">
+          This is for you if:
+          <ul>
+            <li>You’ve had a few lessons and can catch small waves in the whitewater.</li>
+            <li>You want to improve your paddling, balance, and positioning on the board.</li>
+          </ul>
+          What to Expect:
+          We’ll help you refine your technique! Learn how to pop up faster, improve your balance, and position yourself to catch waves more efficiently. We’ll also prepare you to transition from whitewater to green waves.
+          <br /><br />
+          Goal: Confidently surf in the whitewater and start preparing to ride unbroken waves.
+        </p>
+      </div>
+      <div class="half post-bg-all all-bg-left" style="background-image: url('images/improvel.JPG');">
+        <div class="image-caption">Improver Level</div>
+      </div>
+    </div>
+
+    <div class="level-container">
+      <div class="half post-bg-all all-bg-right" style="background-image: url('images/advanced.JPG');">
+        <div class="image-caption">Intermediate Level</div>
+      </div>
+      <div class="half half-color-invert">
+        <h2 class="level-title">Intermediate Level 🌪️</h2>
+        <p class="level-description">
+          This is for you if:
+          <ul>
+            <li>You can paddle for green waves and catch them independently.</li>
+            <li>You want to learn turns, carves, and gain better control over your board.</li>
+          </ul>
+          What to Expect:
+          Now it’s time to level up! We’ll work on your turns, carves, and positioning on the wave. You’ll learn how to build speed, execute smooth maneuvers, and read the waves like a pro.
+          <br /><br />
+          Goal: Ride waves with control, perform basic turns, and feel confident in the line-up.
+        </p>
+      </div>
+    </div>
+
+    <div class="level-container">
+      <div class="half half-color">
+        <h2 class="level-title">Advanced Level 🌀</h2>
+        <p class="level-description">
+          This is for you if:
+          <ul>
+            <li>You’re already surfing regularly and can perform maneuvers like bottom turns and cutbacks.</li>
+            <li>You want to enhance your technique and take your skills to the next level.</li>
+          </ul>
+          What to Expect:
+          It’s all about perfecting the details. We’ll help you develop more powerful turns, improve your technique, and read waves more effectively. This stage is about refining your style and consistently bringing out your best performance.
+          <br /><br />
+          Goal: Execute powerful maneuvers, read various wave types, and build your unique surf style.
+        </p>
+      </div>
+      <div class="half post-bg-all all-bg-left" style="background-image: url('images/intermediate.JPG');">
+        <div class="image-caption">Advanced Level</div>
+      </div>
+    </div>
+
+    <div class="level-container">
+      <div class="half post-bg-all all-bg-right" style="background-image: url('images/pro.JPG');">
+        <div class="image-caption">Pro Level</div>
+      </div>
+      <div class="half half-color-invert">
+        <h2 class="level-title">Pro Level 🌊🔥</h2>
+        <p class="level-description">
+          This is for you if:
+          <ul>
+            <li>You’re an experienced surfer who surfs regularly and masters complex maneuvers.</li>
+            <li>You want to push your skills to the highest level and refine your personal style.</li>
+          </ul>
+          What to Expect:
+          We focus on flow, precision, and style. It’s about more than just technique; it’s about developing the mindset and skillset needed to maximize your surfing potential.
+          <br /><br />
+          Goal: Consistent high-level performance, radical maneuvers, and smooth flow on every wave.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/disini_surfhouse/" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.tiktok.com/@disini.surfhouse" target="_blank">
+        <i class="fab fa-tiktok"></i>
+      </a>
+      <a href="https://wa.me/+6282340647215" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+    <p>© 2025 Disini Surfhouse. All rights reserved.</p>
+  </footer>
+
+  <!-- Bouton WhatsApp -->
+  <a class="whatsapp-btn" href="https://wa.me/+6282340647215" target="_blank" rel="noopener noreferrer">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    // Initialisation de la map
+    const map = L.map('map').setView([-8.4198265, 114.8052097], 14);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Définition des spots avec contenu complet et résumé (shortDesc)
+    const spots = [
+      {
+        name: "Medewi Point",
+        coords: [-8.4198265, 114.8052097],
+        img: "images/medewi-beach.jpg",
+        shortDesc: `<p>Medewi Point is a must-visit spot for long, dreamy left-handers. This mellow point break offers some of Bali’s longest rides.</p>`,
+        desc: `
+          <p>Medewi Point – Bali’s Legendary Long Left</p>
+          <p>Medewi Point is a must-visit spot for anyone looking for long, dreamy left-handers. This mellow cobblestone point break offers some of Bali’s longest rides, stretching up to 300 meters or more on good days. Perfect for all levels:</p>
+          <ul>
+            <li><strong>Beginners:</strong> Gentle, forgiving waves for building confidence.</li>
+            <li><strong>Intermediates:</strong> Excellent for practicing turns and improving style.</li>
+            <li><strong>Advanced:</strong> Endless walls to perfect your flow and carve deep lines.</li>
+          </ul>
+          <p>With a friendly local vibe and stunning coastal scenery, Medewi Point promises an unforgettable surf experience in Bali’s tranquil northwest. A true paradise for anyone seeking fun, flow, and endless waves!</p>
+        `
+      },
+      {
+        name: "Yeh Sumbul Beach",
+        coords: [-8.4121334, 114.7984547],
+        img: "images/yeh-sumbul.jpg",
+        shortDesc: `<p>Yeh Sumbul Beach offers a versatile sandy break with both lefts and rights. It provides an ideal setting for surfers of all levels.</p>`,
+        desc: `
+          <p>Yeh Sumbul Beach</p>
+          <p>Just west of Medewi, Yeh Sumbul Beach offers a versatile, sandy beach break with both lefts and rights. Perfect for all levels depending on the conditions:</p>
+          <ul>
+            <li><strong>Beginners:</strong> On smaller days, it’s the ideal spot to practice in the white water or catch your first green waves. The sandy bottom and forgiving waves create a relaxed environment to build confidence.</li>
+            <li><strong>Intermediates:</strong> Yeh Sumbul offers fun conditions almost every day. It’s the perfect place to work on catching your own waves, improving your paddling technique, and practicing smooth turns. When the swell picks up, the waves provide more punch and speed, making it exciting and challenging for progression.</li>
+            <li><strong>Advanced:</strong> When the swell hits just right, Yeh Sumbul transforms into a powerful playground. The waves can get hollow and fast, offering the chance to score barrels, deep bottom turns, and sharp carves. With fewer crowds, it’s a prime spot to push your skills and enjoy those dream sessions.</li>
+          </ul>
+          <p>Enjoy beautiful scenery and a friendly vibe at Yeh Sumbul Beach – the perfect place to progress and have fun, no matter your level!</p>
+        `
+      },
+      {
+        name: "Medewi Right",
+        coords: [-8.4225034, 114.8081511],
+        img: "images/right.jpg",
+        shortDesc: `<p>Medewi Right offers a fun, punchy right-hand break near the famous long lefts. Ideal for surfers wanting to mix up their session.</p>`,
+        desc: `
+          <p>Medewi Right</p>
+          <p>While Medewi is famous for its long lefts, Medewi Right (Rivermouth) offers a fun right-hand point break just nearby. Perfect for:</p>
+          <ul>
+            <li><strong>Intermediates:</strong> A great spot to practice catching right-hand waves and improve turning technique.</li>
+            <li><strong>Advanced:</strong> On good days, the wave offers clean, punchy rides with opportunities for sharp turns and fun sections.</li>
+          </ul>
+          <p>Less crowded than Medewi Point, this spot provides a refreshing alternative for those looking to mix things up and enjoy a fun session.</p>
+        `
+      },
+      {
+        name: "Rise Point (Pulukan Beach)",
+        coords: [-8.4239889, 114.811921],
+        img: "images/pulukan-beach.jpg",
+        shortDesc: `<p>Rise Point features a playful semi A-frame wave with fun rights and lefts. It caters to surfers of every level in a relaxed setting.</p>`,
+        desc: `
+          <p>Rise Point (Pulukan Beach)</p>
+          <p>Located at Pulukan Beach, Rise Point offers a playful, semi A-frame wave with long fun rights and lefts. Perfect for all levels:</p>
+          <ul>
+            <li><strong>Beginners:</strong> Gentle sections ideal for practicing take-offs and riding white water.</li>
+            <li><strong>Intermediates:</strong> Great for learning to catch your own waves, practicing turns, and progressing your skills.</li>
+            <li><strong>Advanced:</strong> Fun waves with sections perfect for carving and experimenting with maneuvers.</li>
+          </ul>
+          <p>With a semi-sand and rock bottom, Rise Point provides a forgiving yet exciting wave that’s perfect for having fun and improving your surfing in a relaxed environment.</p>
+        `
+      },
+      {
+        name: "Breakfast Point",
+        coords: [-8.4239089, 114.8108635],
+        img: "images/breakfast-point.jpg",
+        shortDesc: `<p>Breakfast Point is a hollow beach break offering fast, fun waves. A gem for surfers seeking challenging barrels on the right day.</p>`,
+        desc: `
+          <p>Breakfast Point</p>
+          <p>Tucked between Rise Point and Medewi Right, Breakfast Point is a hollow beach break that offers something special for those who score it on the right day.</p>
+          <ul>
+            <li><strong>Intermediates:</strong> On smaller days, it’s a fun, faster wave perfect for improving speed and practicing sharper turns.</li>
+            <li><strong>Advanced:</strong> When conditions align, it delivers perfect, fast, and hollow barrels that challenge surfers.</li>
+          </ul>
+          <p>Mostly not crowded and full of potential, Breakfast Point is a gem for those willing to explore and wait for the perfect day.</p>
+        `
+      }
+    ];
+
+    // Création des marqueurs avec popup affichant le résumé (shortDesc) et un lien "See more"
+    spots.forEach((spot, index) => {
+      const marker = L.marker(spot.coords).addTo(map);
+      marker.bindPopup(`
+        <h3>${spot.name}</h3>
+        <img src="${spot.img}" alt="${spot.name}" style="width:100%; border-radius:4px; margin:8px 0;">
+        ${spot.shortDesc}
+        <a href="#spot-${index}" class="see-more">See more</a>
+      `);
+    });
+
+    // Génération dynamique de la section des détails complets des spots
+    const spotsDetailsContainer = document.getElementById('spots-details');
+    spots.forEach((spot, index) => {
+      const spotDiv = document.createElement('div');
+      spotDiv.className = 'spot-detail';
+      spotDiv.id = `spot-${index}`;
+      spotDiv.innerHTML = `
+        <h2>${spot.name}</h2>
+        <img src="${spot.img}" alt="${spot.name}">
+        ${spot.desc}
+      `;
+      spotsDetailsContainer.appendChild(spotDiv);
+    });
+  </script>
+  <!-- Script pour le toggle du menu hamburger -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var hamburger = document.querySelector('.hamburger');
+      var navLinks = document.querySelector('.nav-links');
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function() {
+          navLinks.classList.toggle('active');
+        });
+      }
+    });
+  </script>
+  <!-- Leaflet JS (doublon possible, à supprimer si inutile) -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</body>
+</html>

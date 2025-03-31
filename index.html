@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Disini Surfhouse - Home</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Disini Surfhouse - Your Bali Surf Escape. Enjoy a cozy surf home stay in Yeh Sumbul, Bali, with surf coaching, live forecasts, and a vibrant community." />
+  <meta name="keywords" content="Bali, Surfhouse, Surf Coaching, Yeh Sumbul, Bali Surf, Surf Escape, Medewi, Disini Surfhouse" />
+  <link rel="canonical" href="https://www.disinisurfhouse.com/" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Disini Surfhouse - Home" />
+  <meta property="og:description" content="Discover your Bali surf escape at Disini Surfhouse. Enjoy surf coaching, cozy accommodations, and live surf forecasts in Yeh Sumbul, Bali." />
+  <meta property="og:image" content="https://www.disinisurfhouse.com/images/og-image.jpg" />
+  <meta property="og:url" content="https://www.disinisurfhouse.com/" />
+  <meta property="og:type" content="website" />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Disini Surfhouse - Home" />
+  <meta name="twitter:description" content="Discover your Bali surf escape at Disini Surfhouse. Enjoy surf coaching, cozy accommodations, and live surf forecasts in Yeh Sumbul, Bali." />
+  <meta name="twitter:image" content="https://www.disinisurfhouse.com/images/og-image.jpg" />
+  
+  <!-- Importation de Montserrat pour un style élégant et minimaliste -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome pour les icônes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="header.css" />
+  
+  <style>
+    /* Réinitialisation */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body, html {
+      height: 100%;
+      width: 100%;
+      font-family: 'Montserrat', sans-serif;
+      scroll-behavior: smooth;
+    }
+    /* Container spécifique pour la section d'accueil (Hero) */
+    .hero-container {
+      position: relative;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+    }
+    /* Container général pour le contenu (sections About, Forecast, Footer) */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    /* Vidéo de fond */
+    .bg-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* Vous pouvez ajouter preload="metadata" si souhaité */
+    }
+    /* Overlay */
+    .overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: black;
+      opacity: 0.3;
+      pointer-events: none;
+    }
+    /* Navbar */
+    nav {
+      position: relative;
+      z-index: 30;
+      padding: 1rem;
+      border-bottom: 1px solid white;
+      text-align: center;
+    }
+    .nav-logo {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    nav ul {
+      list-style: none;
+      display: inline-flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #5b3607;
+    }
+    /* Contenu centré (Logo principal) */
+    .center-content {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 10;
+      pointer-events: none;
+    }
+    .center-content img {
+      width: 32rem;
+      max-width: 90%;
+      height: auto;
+    }
+    /* Indicateur scroll down (flèche rebondissante) */
+    .scroll-down {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+      z-index: 30;
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+      40% { transform: translateX(-50%) translateY(10px); }
+      60% { transform: translateX(-50%) translateY(5px); }
+    }
+    /* Bouton WhatsApp */
+    .whatsapp-btn {
+      position: absolute;
+      bottom: 5rem;
+      right: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #22c55e;
+      border-radius: 50%;
+      width: 4rem;
+      height: 4rem;
+      color: white;
+      text-decoration: none;
+      z-index: 30;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+    .whatsapp-btn:hover {
+      background-color: #16a34a;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.8);
+    }
+    .whatsapp-btn i {
+      font-size: 2rem;
+      line-height: 1;
+    }
+    /* Sections (About & Forecast) */
+    section {
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
+      background: #fff;
+    }
+    /* Titres en marron et espacés */
+    section h2, section h3 {
+      text-align: center;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #5b3607;
+    }
+    section p, section ul {
+      max-width: 800px;
+      margin: 0 auto 1rem auto;
+      line-height: 1.8;
+      text-align: center;
+    }
+    section ul {
+      list-style: disc;
+      padding-left: 2rem;
+      text-align: left;
+    }
+    /* Galerie défilante */
+    .gallery-container {
+      overflow: hidden;
+      position: relative;
+      margin: 1.5rem auto;
+      max-width: 800px;
+    }
+    .gallery-track {
+      display: flex;
+      animation: scrollGallery 20s linear infinite;
+    }
+    .gallery-item {
+      flex: 0 0 auto;
+      width: 250px;
+      margin-right: 1rem;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    @keyframes scrollGallery {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    /* Iframe pour les prévisions live (Forecasts) */
+    .surf-forecast {
+      width: 100%;
+      max-width: 800px;
+      height: 600px;
+      border: none;
+      border-radius: 8px;
+      margin: 1rem auto;
+      display: block;
+    }
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1rem 20px;
+      border-top: 1px solid #e0e0e0;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+    footer .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    footer .social-icons a {
+      color: #777;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+      text-decoration: none;
+    }
+    footer .social-icons a:hover {
+      color: #5b3607;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul { gap: 1rem; }
+      .center-content img { width: 90%; }
+      .whatsapp-btn { width: 3.5rem; height: 3.5rem; }
+      .whatsapp-btn i { font-size: 1.8rem; }
+    }
+    /* Additional media queries for very small devices */
+    @media (max-width: 480px) {
+      nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .hero-container {
+        height: 80vh;
+      }
+      .center-content img {
+        width: 80%;
+      }
+      .scroll-down {
+        font-size: 1.5rem;
+      }
+      section {
+        padding: 1rem;
+      }
+      .gallery-item {
+        width: 200px;
+      }
+      .surf-forecast {
+        height: 400px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section avec vidéo -->
+  <div class="hero-container">
+    <!-- Vidéo de fond -->
+    <video class="bg-video" autoplay loop muted playsinline>
+      <source src="/videos/video.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <!-- Overlay -->
+    <div class="overlay"></div>
+    <!-- Navbar -->
+    <nav>
+      <div class="nav-logo">
+        <img src="/images/logo.png" alt="Logo Disini Surfhouse" style="width:4rem; height:auto;" />
+      </div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="surf-coaching.html">Surf Coaching</a></li>
+        <li><a href="accommodations.html">Accommodations</a></li>
+        <li><a href="activities.html">Activities</a></li>
+        <li><a href="contact-us.html">Contact us</a></li>
+      </ul>
+      <!-- Menu de navigation pour mobile -->
+      <div class="mobile-nav">
+        <a href="index.html">Home</a>
+        <a href="activities.html">Activities</a>
+        <a href="accommodations.html">Accommodations</a>
+        <a href="surf-coaching.html">Surf Coaching</a>
+        <a href="contact-us.html">Contact Us</a>
+      </div>
+    </nav>
+    <!-- Contenu centré (Logo principal) -->
+    <div class="center-content">
+      <img src="/images/logo.png" alt="Logo Disini Surfhouse" />
+    </div>
+    <!-- Indicateur scroll down -->
+    <div class="scroll-down">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+    <!-- Bouton WhatsApp -->
+    <a class="whatsapp-btn" href="https://wa.me/+6282340647215" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+  
+  <!-- Section About -->
+  <section id="about" style="background: #f3f3f3;">
+    <div class="container">
+      <h2>Disini - Your Bali Surf Escape</h2>
+      <p>
+        Welcome to Disini, your cozy surf home stay in Yeh Sumbul, Bali. We're building a community where travelers and surfers come together to experience the authentic Bali lifestyle.</p>
+        <p>Our surf coaching is already in full swing – perfect for beginners looking to catch their first wave or intermediate surfers aiming to level up. Our experienced local instructors guide you every step of the way.</p>
+       <p> We're opening our accommodations in Summer/Fall 2025, designed for pure comfort and a chill vibe. Whether you're here to surf, explore, or just relax, Disini is where you belong.</p>
+        <p>We take care of your surf experience in West-Bali!
+      </p>
+      <!-- Galerie défilante sous le texte About -->
+      <div class="gallery-container">
+        <div class="gallery-track">
+          <div class="gallery-item">
+            <img src="/images/gallery1.jpg" alt="Gallery Image 1">
+          </div>
+          <div class="gallery-item">
+            <img src="/images/gallery2.jpg" alt="Gallery Image 2">
+          </div>
+          <div class="gallery-item">
+            <img src="/images/gallery3.jpg" alt="Gallery Image 3">
+          </div>
+          <div class="gallery-item">
+            <img src="/images/gallery4.jpg" alt="Gallery Image 4">
+          </div>
+          <!-- Duplication pour effet continu -->
+          <div class="gallery-item">
+            <img src="/images/gallery1.jpg" alt="Gallery Image 1">
+          </div>
+          <div class="gallery-item">
+            <img src="/images/gallery2.jpg" alt="Gallery Image 2">
+          </div>
+          <div class="gallery-item">
+            <img src="/images/gallery3.jpg" alt="Gallery Image 3">
+          </div>
+          <div class="gallery-item">
+            <img src="/images/gallery4.jpg" alt="Gallery Image 4">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Nouvelle Section : Forecasts Live de Surfline pour Medewi Beach -->
+  <section id="forecast">
+    <div class="container">
+      <h2>Surfline Live Forecast - Medewi Beach</h2>
+      <iframe class="surf-forecast" src="https://www.surfline.com/surf-report/medewi-beach/5842041f4e65fad6a7708d43" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/disini_surfhouse/" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.tiktok.com/@disini.surfhouse" target="_blank">
+        <i class="fab fa-tiktok"></i>
+      </a>
+      <a href="https://wa.me/+6282340647215" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+    <p>© 2025 Disini Surfhouse. All rights reserved.</p>
+  </footer>
+  
+  <!-- Bouton WhatsApp positionné en bas à droite -->
+  <a class="whatsapp-btn" href="https://wa.me/+6282340647215" target="_blank" rel="noopener noreferrer">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  <script src="header.js"></script>
+</body>
+</html>

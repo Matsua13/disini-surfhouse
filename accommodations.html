@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coming Soon — Disini Surfhouse</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Coming Soon — Disini Surfhouse. Our surfhouse accommodations are on their way. Stay tuned for the ultimate Bali surf escape." />
+  <meta name="keywords" content="Coming Soon, Disini Surfhouse, Bali Surf, Accommodation, Surfhouse, Bali, Surf Coaching" />
+  <link rel="canonical" href="https://www.disinisurfhouse.com/coming-soon" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Coming Soon — Disini Surfhouse" />
+  <meta property="og:description" content="Coming Soon — Disini Surfhouse. Our surfhouse accommodations are on their way. Stay tuned for the ultimate Bali surf escape." />
+  <meta property="og:image" content="https://www.disinisurfhouse.com/images/coming-soon-og.jpg" />
+  <meta property="og:url" content="https://www.disinisurfhouse.com/coming-soon" />
+  <meta property="og:type" content="website" />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Coming Soon — Disini Surfhouse" />
+  <meta name="twitter:description" content="Coming Soon — Disini Surfhouse. Our surfhouse accommodations are on their way. Stay tuned for the ultimate Bali surf escape." />
+  <meta name="twitter:image" content="https://www.disinisurfhouse.com/images/coming-soon-og.jpg" />
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <style>
+    /* Réinitialisation */
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background-color: #fff;
+      color: #333;
+    }
+    /* Header / Navbar */
+    header {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      padding: 1rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    nav a { 
+      color: #4c3321; 
+      text-decoration: none; 
+      margin-left: 1rem; 
+      transition: text-decoration 0.3s; 
+    }
+    nav a:hover { 
+      text-decoration: underline; 
+    }
+    /* Bouton Hamburger */
+    .hamburger {
+      display: none;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+    /* Responsive : afficher le hamburger et masquer le menu sur petits écrans */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hamburger {
+        display: block;
+      }
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        margin-top: 1rem;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+    }
+    /* Section blanche (Logo + Cards) */
+    .white-section {
+      background-color: white;
+      padding: 0rem 1rem;
+    }
+    .logo-title { 
+      text-align: center; 
+      margin: 0rem 0; 
+    }
+    .logo-title img { 
+      width: 20rem; 
+      max-width: 100%; 
+      height: auto;
+    }
+    /* MAIN CONTENT */
+    main {
+      margin-top: 20px; /* Pour laisser la place au header fixe */
+      min-height: calc(100vh - 70px - 100px); /* Espace réservé pour header (70px) et footer (~100px) */
+      background: url('/images/background.png') no-repeat center/cover;
+      position: relative;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    main::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+    .inner {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+    }
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      color: #fff;
+    }
+    .social a {
+      color: #fff;
+      font-size: 2rem;
+      margin: 0 1rem;
+      transition: transform 0.2s;
+    }
+    .social a:hover {
+      transform: scale(1.2);
+    }
+    .logo-centered {
+      display: block;
+      margin: 2rem auto 0;
+      max-width: 400px;
+      width: 100%;
+      height: auto;
+    }
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 1rem 20px;
+      border-top: 1px solid #e0e0e0;
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #777;
+      background: #f8f8f8;
+    }
+    footer .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    footer .social-icons a {
+      color: #777;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+      text-decoration: none;
+    }
+    footer .social-icons a:hover {
+      color: #5b3607;
+    }
+    /* Bouton WhatsApp */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 5rem;
+      right: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #22c55e;
+      border-radius: 50%;
+      width: 4rem;
+      height: 4rem;
+      color: white;
+      text-decoration: none;
+      z-index: 30;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+    .whatsapp-btn:hover {
+      background-color: #16a34a;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.8);
+    }
+    .whatsapp-btn i {
+      font-size: 2rem;
+      line-height: 1;
+    }
+    @media (max-width: 768px) {
+      header nav {
+        flex-direction: column;
+      }
+      header .nav-links {
+        margin-top: 1rem;
+      }
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+    /* Additional media queries for very small devices */
+    @media (max-width: 480px) {
+      header nav {
+        flex-direction: column;
+      }
+      header .nav-links {
+        margin-top: 0.5rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header / Navbar -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <a href="index.html" style="font-size: 1.5rem; font-weight: bold;">𝖣𝖨𝖲𝖨𝖭𝖨 𝖲𝖴𝖱𝖥𝖧𝖮𝖴𝖲𝖤</a>
+        </div>
+        <!-- Bouton Hamburger pour mobile -->
+        <div class="hamburger"><i class="fas fa-bars"></i></div>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="surf-coaching.html">Surf Coaching</a>
+          <a href="activities.html">Activities</a>
+          <a href="contact-us.html">Contact Us</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Coming Soon Content -->
+  <main>
+    <div class="inner">
+      <h1>Coming Soon!</h1>
+      <h2>We are currently in the progress of building our surfhouse accommodations.</h2>
+      <div class="social">
+        <a href="https://www.instagram.com/disini_surfhouse/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@disini.surfhouse" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/+6282340647215" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <img src="/images/logo.png" alt="Disini Surfhouse Logo" class="logo-centered" />
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/disini_surfhouse/" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.tiktok.com/@disini.surfhouse" target="_blank">
+        <i class="fab fa-tiktok"></i>
+      </a>
+      <a href="https://wa.me/+6282340647215" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+    <p>© 2025 Disini Surfhouse. All rights reserved.</p>
+  </footer>
+
+  <!-- Bouton WhatsApp positionné en bas à droite -->
+  <a class="whatsapp-btn" href="https://wa.me/+6282340647215" target="_blank" rel="noopener noreferrer">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Script pour le menu hamburger -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var hamburger = document.querySelector('.hamburger');
+      var navLinks = document.querySelector('.nav-links');
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function() {
+          navLinks.classList.toggle('active');
+        });
+      }
+    });
+  </script>
+</body>
+</html>

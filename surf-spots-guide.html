@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Surf Spots Guide - Disini Surfhouse</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Explore our Surf Spots Guide at Disini Surfhouse. Discover handpicked surf spots in Bali with detailed descriptions, images, and live maps." />
+  <meta name="keywords" content="Surf Spots, Bali Surf, Disini Surfhouse, Surf Map, Surf Guide, Medewi, Yeh Sumbul" />
+  <link rel="canonical" href="https://www.disinisurfhouse.com/surf-spots-guide" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Surf Spots Guide - Disini Surfhouse" />
+  <meta property="og:description" content="Discover our curated Surf Spots Guide at Disini Surfhouse with detailed information on Bali's best surf breaks." />
+  <meta property="og:image" content="https://www.disinisurfhouse.com/images/og-surf-spots.jpg" />
+  <meta property="og:url" content="https://www.disinisurfhouse.com/surf-spots-guide" />
+  <meta property="og:type" content="website" />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Surf Spots Guide - Disini Surfhouse" />
+  <meta name="twitter:description" content="Discover our curated Surf Spots Guide at Disini Surfhouse with detailed information on Bali's best surf breaks." />
+  <meta name="twitter:image" content="https://www.disinisurfhouse.com/images/og-surf-spots.jpg" />
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Roboto', sans-serif;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    /* Header / Navbar */
+    header {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      padding: 1rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+    nav .logo a {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #4c3321;
+      text-decoration: none;
+    }
+    nav .nav-links a {
+      color: #4c3321;
+      text-decoration: none;
+      margin-left: 1rem;
+      transition: text-decoration 0.3s;
+    }
+    nav .nav-links a:hover {
+      text-decoration: underline;
+    }
+    /* Bouton Hamburger */
+    .hamburger {
+      display: none;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+    /* Titre de la page */
+    .page-title {
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+    .page-title h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #374151;
+      margin: 0;
+    }
+    /* Map container */
+    #map {
+      height: 80vh;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    /* Section des détails des spots */
+    .spots-details {
+      padding: 2rem 0;
+      background: #f9f9f9;
+    }
+    .spot-detail {
+      margin: 2rem auto;
+      max-width: 800px;
+    }
+    .spot-detail img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 4px;
+      margin: 1rem 0;
+    }
+    /* Style pour le lien See more */
+    .see-more {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: #007bff;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    /* Message de fin */
+    .more-spots {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      color: rgb(82, 39, 9);
+      font-style: italic;
+    }
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1rem 20px;
+      border-top: 1px solid #e0e0e0;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+    footer .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    footer .social-icons a {
+      color: #777;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+      text-decoration: none;
+    }
+    footer .social-icons a:hover {
+      color: #5b3607;
+    }
+    /* Bouton WhatsApp fixé par-dessus la map */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 5rem;
+      right: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #22c55e;
+      border-radius: 50%;
+      width: 4rem;
+      height: 4rem;
+      color: #fff;
+      text-decoration: none;
+      z-index: 1000;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+    .whatsapp-btn:hover {
+      background-color: #16a34a;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    .whatsapp-btn i {
+      font-size: 2rem;
+      line-height: 1;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hamburger {
+        display: block;
+      }
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        margin-top: 1rem;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+    }
+    @media (max-width: 480px) {
+      nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .page-title h1 {
+        font-size: 2rem;
+      }
+      .spot-detail img {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header / Navbar -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <a href="index.html">𝖣𝖨𝖲𝖨𝖭𝖨 𝖲𝖴𝖱𝖥𝖧𝖮𝖴𝖲𝖤</a>
+        </div>
+        <!-- Bouton Hamburger pour mobile -->
+        <div class="hamburger"><i class="fas fa-bars"></i></div>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="surf-coaching.html">Surf Coaching</a>
+          <a href="accommodations.html">Accommodations</a>
+          <a href="activities.html">Activities</a>
+          <a href="contact-us.html">Contact Us</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Titre de la page -->
+  <section class="page-title">
+    <h1>Surf Spots Guide</h1>
+  </section>
+
+  <!-- Contenu principal avec la map -->
+  <div class="container">
+    <div id="map"></div>
+  </div>
+
+  <!-- Section des détails des spots (liste scrollable) -->
+  <section class="spots-details">
+    <div class="container" id="spots-details">
+      <!-- Le contenu complet des spots sera injecté par JavaScript -->
+    </div>
+    <!-- Message final -->
+    <div class="more-spots">... And more secret spots to discover! 🌊</div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/disini_surfhouse/" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.tiktok.com/@disini.surfhouse" target="_blank">
+        <i class="fab fa-tiktok"></i>
+      </a>
+      <a href="https://wa.me/+6282340647215" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+    <p>© 2025 Disini Surfhouse. All rights reserved.</p>
+  </footer>
+
+  <!-- Bouton WhatsApp -->
+  <a class="whatsapp-btn" href="https://wa.me/+6282340647215" target="_blank" rel="noopener noreferrer">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    // Initialisation de la map
+    const map = L.map('map').setView([-8.4198265, 114.8052097], 14);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Définition des spots avec contenu complet et résumé (shortDesc)
+    const spots = [
+      {
+        name: "Medewi Point",
+        coords: [-8.4198265, 114.8052097],
+        img: "images/medewi-beach.jpg",
+        shortDesc: `<p>Medewi Point is a must-visit spot for long, dreamy left-handers. This mellow point break offers some of Bali’s longest rides.</p>`,
+        desc: `
+          <p>Medewi Point – Bali’s Legendary Long Left</p>
+          <p>Medewi Point is a must-visit spot for anyone looking for long, dreamy left-handers. This mellow cobblestone point break offers some of Bali’s longest rides, stretching up to 300 meters or more on good days. Perfect for all levels:</p>
+          <ul>
+            <li><strong>Beginners:</strong> Gentle, forgiving waves for building confidence.</li>
+            <li><strong>Intermediates:</strong> Excellent for practicing turns and improving style.</li>
+            <li><strong>Advanced:</strong> Endless walls to perfect your flow and carve deep lines.</li>
+          </ul>
+          <p>With a friendly local vibe and stunning coastal scenery, Medewi Point promises an unforgettable surf experience in Bali’s tranquil northwest. A true paradise for anyone seeking fun, flow, and endless waves!</p>
+        `
+      },
+      {
+        name: "Yeh Sumbul Beach",
+        coords: [-8.4121334, 114.7984547],
+        img: "images/yeh-sumbul.jpg",
+        shortDesc: `<p>Yeh Sumbul Beach offers a versatile sandy break with both lefts and rights. It provides an ideal setting for surfers of all levels.</p>`,
+        desc: `
+          <p>Yeh Sumbul Beach</p>
+          <p>Just west of Medewi, Yeh Sumbul Beach offers a versatile, sandy beach break with both lefts and rights. Perfect for all levels depending on the conditions:</p>
+          <ul>
+            <li><strong>Beginners:</strong> On smaller days, it’s the ideal spot to practice in the white water or catch your first green waves. The sandy bottom and forgiving waves create a relaxed environment to build confidence.</li>
+            <li><strong>Intermediates:</strong> Yeh Sumbul offers fun conditions almost every day. It’s the perfect place to work on catching your own waves, improving your paddling technique, and practicing smooth turns. When the swell picks up, the waves provide more punch and speed, making it exciting and challenging for progression.</li>
+            <li><strong>Advanced:</strong> When the swell hits just right, Yeh Sumbul transforms into a powerful playground. The waves can get hollow and fast, offering the chance to score barrels, deep bottom turns, and sharp carves. With fewer crowds, it’s a prime spot to push your skills and enjoy those dream sessions.</li>
+          </ul>
+          <p>Enjoy beautiful scenery and a friendly vibe at Yeh Sumbul Beach – the perfect place to progress and have fun, no matter your level!</p>
+        `
+      },
+      {
+        name: "Medewi Right",
+        coords: [-8.4225034, 114.8081511],
+        img: "images/right.jpg",
+        shortDesc: `<p>Medewi Right offers a fun, punchy right-hand break near the famous long lefts. Ideal for surfers wanting to mix up their session.</p>`,
+        desc: `
+          <p>Medewi Right</p>
+          <p>While Medewi is famous for its long lefts, Medewi Right (Rivermouth) offers a fun right-hand point break just nearby. Perfect for:</p>
+          <ul>
+            <li><strong>Intermediates:</strong> A great spot to practice catching right-hand waves and improve turning technique.</li>
+            <li><strong>Advanced:</strong> On good days, the wave offers clean, punchy rides with opportunities for sharp turns and fun sections.</li>
+          </ul>
+          <p>Less crowded than Medewi Point, this spot provides a refreshing alternative for those looking to mix things up and enjoy a fun session.</p>
+        `
+      },
+      {
+        name: "Rise Point (Pulukan Beach)",
+        coords: [-8.4239889, 114.811921],
+        img: "images/pulukan-beach.jpg",
+        shortDesc: `<p>Rise Point features a playful semi A-frame wave with fun rights and lefts. It caters to surfers of every level in a relaxed setting.</p>`,
+        desc: `
+          <p>Rise Point (Pulukan Beach)</p>
+          <p>Located at Pulukan Beach, Rise Point offers a playful, semi A-frame wave with long fun rights and lefts. Perfect for all levels:</p>
+          <ul>
+            <li><strong>Beginners:</strong> Gentle sections ideal for practicing take-offs and riding white water.</li>
+            <li><strong>Intermediates:</strong> Great for learning to catch your own waves, practicing turns, and progressing your skills.</li>
+            <li><strong>Advanced:</strong> Fun waves with sections perfect for carving and experimenting with maneuvers.</li>
+          </ul>
+          <p>With a semi-sand and rock bottom, Rise Point provides a forgiving yet exciting wave that’s perfect for having fun and improving your surfing in a relaxed environment.</p>
+        `
+      },
+      {
+        name: "Breakfast Point",
+        coords: [-8.4239089, 114.8108635],
+        img: "images/breakfast-point.jpg",
+        shortDesc: `<p>Breakfast Point is a hollow beach break offering fast, fun waves. A gem for surfers seeking challenging barrels on the right day.</p>`,
+        desc: `
+          <p>Breakfast Point</p>
+          <p>Tucked between Rise Point and Medewi Right, Breakfast Point is a hollow beach break that offers something special for those who score it on the right day.</p>
+          <ul>
+            <li><strong>Intermediates:</strong> On smaller days, it’s a fun, faster wave perfect for improving speed and practicing sharper turns.</li>
+            <li><strong>Advanced:</strong> When conditions align, it delivers perfect, fast, and hollow barrels that challenge surfers.</li>
+          </ul>
+          <p>Mostly not crowded and full of potential, Breakfast Point is a gem for those willing to explore and wait for the perfect day.</p>
+        `
+      }
+    ];
+
+    // Création des marqueurs avec popup affichant le résumé (shortDesc) et un lien "See more"
+    spots.forEach((spot, index) => {
+      const marker = L.marker(spot.coords).addTo(map);
+      marker.bindPopup(`
+        <h3>${spot.name}</h3>
+        <img src="${spot.img}" alt="${spot.name}" style="width:100%; border-radius:4px; margin:8px 0;">
+        ${spot.shortDesc}
+        <a href="#spot-${index}" class="see-more">See more</a>
+      `);
+    });
+
+    // Génération dynamique de la section des détails complets des spots
+    const spotsDetailsContainer = document.getElementById('spots-details');
+    spots.forEach((spot, index) => {
+      const spotDiv = document.createElement('div');
+      spotDiv.className = 'spot-detail';
+      spotDiv.id = `spot-${index}`;
+      spotDiv.innerHTML = `
+        <h2>${spot.name}</h2>
+        <img src="${spot.img}" alt="${spot.name}">
+        ${spot.desc}
+      `;
+      spotsDetailsContainer.appendChild(spotDiv);
+    });
+  </script>
+  <!-- Script pour le toggle du menu hamburger -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var hamburger = document.querySelector('.hamburger');
+      var navLinks = document.querySelector('.nav-links');
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function() {
+          navLinks.classList.toggle('active');
+        });
+      }
+    });
+  </script>
+  <!-- Leaflet JS (doublon possible, à supprimer si inutile) -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</body>
+</html>

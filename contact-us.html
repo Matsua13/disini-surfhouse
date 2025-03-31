@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us - Disini Surfhouse</title>
+  <!-- Importation de Montserrat pour un style élégant et minimaliste -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome pour les icônes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* Réinitialisation et configuration Flexbox pour le layout complet */
+    html, body {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      font-family: 'Montserrat', sans-serif;
+      scroll-behavior: smooth;
+      background-color: #fff;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    /* Navbar */
+    header {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    header .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #5b3607;
+      text-decoration: none;
+    }
+    /* Bouton Hamburger */
+    .hamburger {
+      display: none;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+    /* Liens de navigation */
+    header nav ul.nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    header nav ul.nav-links li a {
+      text-decoration: none;
+      color: #5b3607;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    header nav ul.nav-links li a:hover {
+      color: #a35c4b;
+    }
+    /* Main Content */
+    main {
+      flex: 1;
+      padding: 100px 2rem 2rem;
+    }
+    .contact-container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 2rem;
+      background: #f3f3f3;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .contact-container h1 {
+      color: #5b3607;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .contact-container p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+    .contact-info {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #5b3607;
+    }
+    .contact-info a {
+      color: #5b3607;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .contact-info a:hover {
+      color: #a35c4b;
+    }
+    /* Footer */
+    footer {
+      background: #f8f8f8;
+      padding: 1rem 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+    }
+    footer .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    footer .social-icons a {
+      color: #777;
+      font-size: 1.5rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    footer .social-icons a:hover {
+      color: #5b3607;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      header nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hamburger {
+        display: block;
+      }
+      header nav ul.nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        margin-top: 1rem;
+      }
+      header nav ul.nav-links.active {
+        display: flex;
+      }
+      main { padding: 100px 1rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header / Navbar -->
+  <header>
+    <nav>
+      <a class="logo" href="index.html">Disini Surfhouse</a>
+      <!-- Bouton Hamburger pour mobile -->
+      <div class="hamburger"><i class="fas fa-bars"></i></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="activities.html">Activities</a></li>
+        <li><a href="accommodations.html">Accommodations</a></li>
+        <li><a href="surf-coaching.html">Surf Coaching</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <!-- Main Content -->
+  <main>
+    <div class="contact-container">
+      <h1>Contact Us</h1>
+      <p>We would love to hear from you! Whether you have questions about our surf lessons, accommodations, or activities, feel free to reach out to us.</p>
+      <div class="contact-info">
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/+6282340647215" target="_blank">+62 823 4064 7215</a></p>
+        <p><strong>Email:</strong> <a href="mailto:info@disinisurfhouse.com">info@disinisurfhouse.com</a></p>
+      </div>
+    </div>
+  </main>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/disini_surfhouse/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@disini.surfhouse" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/+6282340647215" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>© 2025 Disini Surfhouse. All rights reserved.</p>
+  </footer>
+  
+  <!-- Script pour le menu hamburger -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var hamburger = document.querySelector('.hamburger');
+      var navLinks = document.querySelector('.nav-links');
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function() {
+          navLinks.classList.toggle('active');
+        });
+      }
+    });
+  </script>
+</body>
+</html>

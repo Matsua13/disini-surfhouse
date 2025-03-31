@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Surf Lessons — Disini Surfhouse</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Découvrez nos cours de surf personnalisés à Disini Surfhouse. Profitez d'un coaching de qualité, de la location de planches et du transport depuis le point de rencontre."/>
+  <meta name="keywords" content="surf lessons, surf coaching, board rental, transportation, Disini Surfhouse, surf, Yeh Sumbul, Medewi"/>
+  <meta name="author" content="Disini Surfhouse"/>
+
+  <!-- Google Fonts for minimalistic typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet"/>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <!-- FullCalendar & AOS CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css"/>
+
+  <style>
+    /* ===========================
+       RESET & GLOBAL STYLES
+    ============================ */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; overflow: hidden; font-family: 'Roboto', sans-serif; }
+
+    /* Background for the initial popup */
+    body {
+      background-image: url('/images/background.png');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* ===========================
+       POPUP STYLES
+    ============================ */
+    .popup {
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      backdrop-filter: blur(5px);
+      animation: fadeIn 0.5s ease-out forwards;
+      z-index: 100;
+      max-width: 400px;
+      width: 90%;
+      position: relative;
+      transition: opacity 0.5s ease;
+    }
+    .popup .banner {
+      position: relative;
+      padding: 1rem;
+    }
+    .popup .banner img {
+      width: 150px; /* Logo redimensionné */
+      position: absolute;
+      top: -150px; /* Ajustement de la position */
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .popup p {
+      margin: 0.5rem 0;
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #000;
+    }
+    .popup p:first-of-type strong {
+      font-size: 1.3em;
+    }
+    .popup .details {
+      text-align: left;
+      margin-top: 1rem;
+    }
+    .popup .details p {
+      margin: 0.5rem 0;
+      color: #000;
+    }
+    .popup .details p span {
+      color: #8B4513;
+      font-style: italic;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===========================
+       HINT (down arrow)
+    ============================ */
+    .hint {
+      position: fixed;
+      top: calc(50% + 200px);
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.5rem;
+      z-index: 100;
+      transition: opacity 0.5s ease;
+    }
+    .hint .arrow {
+      font-size: 2.5rem;
+      animation: bounce 1s infinite alternate;
+      color: #fff;
+    }
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(12px); }
+    }
+
+    /* ===========================
+       CONTENT AREA
+    ============================ */
+    .content {
+      display: none;
+      height: 100vh;
+      overflow-y: auto;
+      background: #ffffff;
+      padding: 2rem 1rem;
+      color: #333;
+      width: 100%;
+    }
+
+    /* ---------------------------
+       Minimalistic Content Sections
+    ---------------------------- */
+    .section {
+      margin: 2rem 0;
+      padding: 1rem 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .section:last-child { border-bottom: none; }
+    .section h1, .section h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #4c3321;
+      font-weight: 500;
+    }
+    .section h1 { font-size: 2.5rem; }
+    .section h2 { font-size: 2rem; }
+    .section p, .section ul {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      color: #333;
+      text-align: center;
+    }
+    .section ul {
+      list-style: disc;
+      margin-left: 1.5rem;
+    }
+
+    /* ---------------------------
+       Calendar Section
+    --------------------------- */
+    #calendar {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    /* ---------------------------
+       Side Section
+    --------------------------- */
+    .side-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 2rem 0;
+      padding: 1rem;
+    }
+    .side-section .side-image {
+      width: 100%;
+      max-width: 500px;
+      margin-bottom: 1rem;
+    }
+    .side-section .side-image img {
+      width: 100%;
+      border-radius: 5px;
+      transition: transform 0.3s ease;
+    }
+    .side-section .side-image img:hover { transform: scale(1.02); }
+    .side-section .text {
+      width: 100%;
+      max-width: 800px;
+      text-align: center;
+    }
+
+    /* ---------------------------
+       Gallery Section
+    --------------------------- */
+    .gallery {
+      margin: 2rem 0;
+      padding: 0 1rem;
+      background: #ffffff;
+    }
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      justify-items: center;
+    }
+    .gallery-container img {
+      width: 100%;
+      max-width: 350px;
+      border-radius: 5px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .gallery-container img:hover { transform: scale(1.03); }
+
+    /* ===========================
+       HEADER & NAVIGATION
+    ============================ */
+    header {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      padding: 1rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      /* Suppression du positionnement inline pour que flex fonctionne correctement */
+      /* position: relative; */
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+    nav .logo a {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #4c3321;
+      text-decoration: none;
+    }
+    nav .nav-links a {
+      color: #4c3321;
+      text-decoration: none;
+      margin-left: 1rem;
+      transition: text-decoration 0.3s;
+    }
+    nav .nav-links a:hover {
+      text-decoration: underline;
+    }
+    .hamburger {
+      display: none;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+    /* Responsive Hamburger Menu */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: row;
+        align-items: center;
+      }
+      .hamburger {
+        display: block;
+      }
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        margin-top: 1rem;
+        position: static;
+        background: none;
+        padding: 0;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      nav .nav-links a {
+        margin: 0.5rem 0;
+      }
+    }
+
+    /* ---------------------------
+       LOGO TITLE (pour le contenu)
+    --------------------------- */
+    .logo-title img {
+      display: block;
+      margin: 0 auto;
+      width: 150px;
+    }
+
+    /* ---------------------------
+       FOOTER
+    --------------------------- */
+    footer {
+      text-align: center;
+      padding: 1rem 20px;
+      border-top: 1px solid #e0e0e0;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #777;
+      background: #ffffff;
+    }
+    footer .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    footer .social-icons a {
+      color: #777;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+      text-decoration: none;
+    }
+    footer .social-icons a:hover { color: #5b3607; }
+
+    /* ---------------------------
+       Book Now Button
+    --------------------------- */
+    .book-now {
+      display: inline-block;
+      background: #D4AF37;
+      color: #800000;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 30px;
+      margin-top: 30px;
+      transition: background 0.3s;
+    }
+    .book-now:hover { background: #b48f2a; }
+
+    /* ===========================
+       RESPONSIVE ADJUSTMENTS (autres)
+    ============================ */
+    @media (max-width: 768px) {
+      /* Ici on peut ajouter d'autres ajustements spécifiques si nécessaire */
+    }
+  </style>
+</head>
+<body>
+  <!-- INITIAL POPUP -->
+  <div class="popup" id="popup">
+    <div class="banner">
+      <img src="/images/logo.png" alt="Logo">
+      <p><strong>INCLUDED IN <span style="font-size: 1.2em;">ALL</span> LESSONS</strong></p>
+      <div class="details">
+        <p>Surf Coaching</p>
+        <p>Board Rental</p>
+        <p>Transportation <span>(from meeting point to surf spot and back)</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="hint" id="hint">
+    <span class="arrow">⇩</span>
+  </div>
+
+  <!-- CONTENT SECTION – Affiché après le scroll du popup -->
+  <div class="content" id="content">
+    <!-- HEADER (mise à jour avec effet hamburger du code de référence) -->
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">
+            <a href="index.html">𝖣𝖨𝖲𝖨𝖭𝖨 𝖲𝖴𝖱𝖥𝖧𝖮𝖴𝖲𝖤</a>
+          </div>
+          <!-- Bouton hamburger pour mobile -->
+          <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+          </div>
+          <div class="nav-links" id="nav-links">
+            <a href="index.html">Home</a>
+            <a href="surf-coaching.html">Surf Coaching</a>
+            <a href="accommodations.html">Accommodations</a>
+            <a href="activities.html">Activities</a>
+            <a href="contact-us.html">Contact Us</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- SECTIONS DU CONTENU -->
+    <section class="section" data-aos="fade-up">
+      <div class="logo-title">
+        <img src="/images/logo.png" alt="Logo Disini Surfhouse">
+      </div>
+      <h1>About Our Surf Instructors</h1>
+      <p>
+        At Disini Surf House, our team of experienced and passionate surf instructors is here to help you progress and make the most of your surf experience. Whether you’re a total beginner or an advanced surfer looking to fine-tune your skills, our instructors are ready to guide you every step of the way.
+      </p>
+      <div class="side-image">
+        <img src="/images/surf_side1.jpg" alt="Surfing lifestyle">
+      </div>
+    </section>
+    <section class="section" data-aos="fade-up" data-aos-delay="150">
+      <h2>Why Choose Us?</h2>
+      <ul>
+        <li><strong>Local Knowledge:</strong> Our coaches are locals who know the waves around Yeh Sumbul, Medewi, and beyond like the back of their hand. They’ll take you to the best spots for your skill level and help you understand the unique conditions of each break.</li>
+        <li><strong>Personalized Coaching:</strong> We keep our lessons small and focused, providing tailored feedback to help you improve quickly and safely. From paddling and popping up to advanced maneuvers and wave selection – we’ve got you covered.</li>
+        <li><strong>Passionate & Friendly:</strong> Our instructors love to share the joy of surfing. They’re here to boost your confidence, cheer you on, and make sure you have a fun and unforgettable time in the water.</li>
+        <li><strong>All Levels Welcome:</strong> From first-timers catching their first wave to seasoned surfers chasing barrels, our instructors are skilled at adjusting their coaching to match your needs.</li>
+      </ul>
+    </section>
+    <!-- Gallery Section -->
+    <section class="gallery" data-aos="fade-up" data-aos-delay="450">
+      <div class="gallery-container">
+        <img src="/images/surf1.jpg" alt="Surfing action">
+        <img src="/images/surf2.jpg" alt="Beach view">
+        <img src="/images/surf3.jpg" alt="Sunset surf">
+      </div>
+    </section>
+    <!-- Side Section avec image intégrée -->
+    <section class="side-section" data-aos="fade-up" data-aos-delay="200">
+      <div class="text">
+        <h2>Join Us and Learn From the Best!</h2>
+      </div>
+    </section>
+    <!-- Section Calendrier -->
+    <section class="section" data-aos="fade-up" data-aos-delay="300">
+      <p><strong>Ready to hit the waves with our amazing instructors?</strong> Send us a message or book directly using the calendar below.</p>
+      <div id="calendar" data-aos="zoom-in"></div>
+    </section>
+    
+    <!-- FOOTER (identique à Surf Coaching) -->
+    <footer>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/disini_surfhouse/" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.tiktok.com/@disini.surfhouse" target="_blank">
+          <i class="fab fa-tiktok"></i>
+        </a>
+        <a href="https://wa.me/+6282340647215" target="_blank">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+      <p>© 2025 Disini Surfhouse. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <!-- --------------------------
+       SCRIPTS
+  --------------------------- -->
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+    
+    // Révélation du contenu (popup -> contenu)
+    function reveal() {
+      document.getElementById('popup').style.display = 'none';
+      document.getElementById('hint').style.display = 'none';
+      document.getElementById('content').style.display = 'block';
+      document.body.style.overflow = 'auto';
+      document.body.style.backgroundImage = 'none';
+      window.removeEventListener('wheel', reveal);
+      window.removeEventListener('touchstart', reveal);
+    }
+    window.addEventListener('wheel', reveal);
+    window.addEventListener('touchstart', reveal);
+
+    // Initialisation du calendrier
+    document.addEventListener('DOMContentLoaded', () => {
+      const calendarEl = document.getElementById('calendar');
+      if (calendarEl) {
+        new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth',
+          height: 'auto',
+          selectable: true,
+          dateClick(info) {
+            const lvl = prompt("Enter surf level (beginner, intermediate, advanced):", "beginner");
+            if (lvl && lvl.trim() !== "") {
+              window.open(`https://wa.me/+6282340647215?text=${encodeURIComponent(`Book surf lesson on ${info.dateStr}. Level: ${lvl}`)}`, '_blank');
+            }
+          }
+        }).render();
+      }
+    });
+
+    // Hamburger Menu Toggle for Mobile
+    document.addEventListener('DOMContentLoaded', function() {
+      var hamburger = document.getElementById('hamburger');
+      var navLinks = document.getElementById('nav-links');
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function() {
+          navLinks.classList.toggle('active');
+        });
+      }
+    });
+  </script>
+</body>
+</html>
