@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Disini Surfhouse - Yeh Sumbul Paradise</title>
-  
+
   <!-- SEO Meta Tags -->
   <meta name="description" content="Discover Yeh Sumbul Paradise with Disini Surfhouse. Enjoy breathtaking nature, thrilling adventures, local dining, and vibrant nightlife in your local surf haven." />
   <meta name="keywords" content="Yeh Sumbul, Disini Surfhouse, surf paradise, nature, adventure, dining, nightlife, Indonesia" />
   <meta name="author" content="Disini Surfhouse" />
   <meta name="robots" content="index, follow" />
-  
+
   <!-- Open Graph / Social Sharing -->
   <meta property="og:title" content="Disini Surfhouse - Yeh Sumbul Paradise" />
   <meta property="og:description" content="Discover Yeh Sumbul Paradise with Disini Surfhouse. Enjoy breathtaking nature, thrilling adventures, and vibrant local dining in a serene surf town." />
@@ -22,7 +22,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
+
   <style>
     /* Réinitialisation */
     * {
@@ -80,7 +80,7 @@
       font-size: 2rem;
       cursor: pointer;
     }
-    
+
     /* White section (Logo + Cards) */
     .white-section {
       background-color: white;
@@ -94,7 +94,7 @@
       max-width: 100%;
       height: auto;
     }
-    
+
     /* Footer */
     footer {
       background: #f8f8f8;
@@ -120,12 +120,12 @@
     footer .social-icons a:hover {
       color: #5b3607;
     }
-    
+
     /* Hero Section */
     .hero {
       position: relative;
       height: 70vh;
-      background: url('/images/sumbul.png') center/cover no-repeat;
+      background: url('/images/activitiees.jpg') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -146,7 +146,7 @@
       color: #fff;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
-    
+
     /* Main Content */
     main {
       padding: 3rem 2rem;
@@ -180,7 +180,7 @@
       height: auto;
       border-radius: 8px;
     }
-    
+
     /* Grid pour les cards */
     .activities {
       display: grid;
@@ -222,7 +222,7 @@
     .local-dining {
       padding-top: 2rem;
     }
-    
+
     /* Bouton WhatsApp */
     .whatsapp-btn {
       position: fixed;
@@ -248,42 +248,51 @@
       font-size: 2rem;
       line-height: 1;
     }
-    
+
+    /* Message de fin */
+    .section-adventure-awaits {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      color: rgb(82, 39, 9);
+      font-style: italic;
+    }
+
     /* Media Queries */
     @media (max-width: 768px) {
-  /* Passage en colonne pour le header */
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  /* Bouton hamburger : affiché normalement (pas en position fixe) */
-  .hamburger {
-    display: block;
-  }
-  /* Menu de navigation : disposition en colonne, affichage masqué par défaut */
-  .nav-links {
-    flex-direction: column;
-    width: 100%;
-    margin-top: 1rem;
-    display: none;
-  }
-  /* Affichage du menu lorsque la classe 'active' est ajoutée */
-  .nav-links.active {
-    display: flex;
-  }
-  /* Ajustement du titre de la section hero */
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-  /* Ajustement du bouton WhatsApp */
-  .whatsapp-btn {
-    width: 3.5rem;
-    height: 3.5rem;
-  }
-  .whatsapp-btn i {
-    font-size: 1.8rem;
-  }
-}
+      /* Passage en colonne pour le header */
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      /* Bouton hamburger : affiché normalement (pas en position fixe) */
+      .hamburger {
+        display: block;
+      }
+      /* Menu de navigation : disposition en colonne, affichage masqué par défaut */
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
+        display: none;
+      }
+      /* Affichage du menu lorsque la classe 'active' est ajoutée */
+      .nav-links.active {
+        display: flex;
+      }
+      /* Ajustement du titre de la section hero */
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      /* Ajustement du bouton WhatsApp */
+      .whatsapp-btn {
+        width: 3.5rem;
+        height: 3.5rem;
+      }
+      .whatsapp-btn i {
+        font-size: 1.8rem;
+      }
+    }
 
     @media (max-width: 480px) {
       header {
@@ -297,14 +306,6 @@
       }
       .section-title {
         font-size: 2rem;
-      }
-      /* Message de fin */
-      .special-title {
-        text-align: center;
-        font-size: 1.5rem;
-        margin-top: 4rem;
-        color: rgb(82, 39, 9);
-        font-style: italic;
       }
       .content {
         font-size: 1rem;
@@ -337,12 +338,12 @@
       </nav>
     </div>
   </header>
-  
+
   <!-- Hero Section -->
   <section class="hero">
     <h1>Activities</h1>
   </section>
-  
+
   <!-- Main Content -->
   <main>
     <div class="content">
@@ -351,35 +352,35 @@
     </div>
     <section class="activities">
       <div class="activity-card">
-        <img src="/images/menjangan-island.jpg" alt="Menjangan Island">
+        <img src="/images/island.jpg" alt="Menjangan Island">
         <div class="card-content">
           <h3>Menjangan Island</h3>
           <p>Discover the breathtaking underwater world with snorkeling or diving in one of Bali's most pristine coral reefs.</p>
         </div>
       </div>
       <div class="activity-card">
-        <img src="/images/surf-trips-java.jpg" alt="Surf Trips to Java">
+        <img src="/images/java.jpg" alt="Surf Trips to Java">
         <div class="card-content">
           <h3>Surf Trips to Java</h3>
           <p>Join our adventurous surf trips to the uncrowded waves of Java. Perfect for those seeking new surf experiences.</p>
         </div>
       </div>
       <div class="activity-card">
-        <img src="/images/hiking-mount-ijen.jpg" alt="Hiking Mount ljen">
+        <img src="/images/hiking.jpg" alt="Hiking Mount ljen">
         <div class="card-content">
           <h3>Hiking Mount ljen</h3>
           <p>Embark on a guided trek to Mount ljen and witness the incredible blue fire phenomenon and stunning sunrise views.</p>
         </div>
       </div>
       <div class="activity-card">
-        <img src="/images/dolphin-watching.jpg" alt="Dolphin Watching in Lovina">
+        <img src="/images/dolphin.jpg" alt="Dolphin Watching in Lovina">
         <div class="card-content">
           <h3>Dolphin Watching in Lovina</h3>
           <p>Experience a magical morning cruise to spot dolphins in the calm waters of Lovina.</p>
         </div>
       </div>
       <div class="activity-card">
-        <img src="/images/flexible-surf.jpg" alt="Flexible Surf Trips">
+        <img src="/images/trip.jpg" alt="Flexible Surf Trips">
         <div class="card-content">
           <h3>Flexible Surf Trips</h3>
           <p>Want to explore other surf spots? We can arrange surf trips tailored to your desires.</p>
@@ -387,10 +388,10 @@
       </div>
     </section>
     <div class="content">
-      <h2 class="section-title special-title">Adventure awaits!</h2>
+      <h2 class="section-adventure-awaits">Adventure awaits!</h2>
     </div>
   </main>
-  
+
   <!-- Footer -->
   <footer>
     <div class="social-icons">
@@ -400,19 +401,19 @@
     </div>
     <p>© 2025 Disini Surfhouse. All rights reserved.</p>
   </footer>
-  
+
   <!-- Bouton WhatsApp positionné en bas à droite -->
   <a class="whatsapp-btn" href="https://wa.me/+6282340647215" target="_blank" rel="noopener noreferrer">
     <i class="fab fa-whatsapp"></i>
   </a>
-  
+
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
   <script>
     // Initialize AOS
     AOS.init({ duration: 800, once: true });
-    
+
     // Initialize FullCalendar if needed
     document.addEventListener('DOMContentLoaded', function() {
       var calendarEl = document.getElementById('calendar');
@@ -433,7 +434,7 @@
         calendar.render();
       }
     });
-    
+
     // Hamburger Menu Toggle for Mobile
     document.addEventListener('DOMContentLoaded', function() {
       var hamburger = document.querySelector('.hamburger');
