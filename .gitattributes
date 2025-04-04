@@ -1,1 +1,2 @@
 videos/video.mp4 filter=lfs diff=lfs merge=lfs -text
+videos/drone1.mov filter=lfs diff=lfs merge=lfs -text
