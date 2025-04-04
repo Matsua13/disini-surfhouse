@@ -124,7 +124,7 @@
     .hero {
       position: relative;
       height: 70vh;
-      background: url('/images/activities-hero.jpg') center/cover no-repeat;
+      background: url('/images/movienight.jpg') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -166,18 +166,29 @@
     .secret-section {
       margin-top: 3rem; /* espace supplémentaire au-dessus */
     }
-    .photo-slider {
-      display: flex;
-      overflow-x: auto;
-      gap: 1rem;
-      padding: 1rem 0;
-      scroll-behavior: smooth;
-    }
-    .photo-slider img {
-      width: 300px;
-      height: auto;
-      border-radius: 8px;
-    }
+    .secret-gem-photos {
+  display: flex;
+  overflow-x: auto;     /* Active le scroll horizontal si nécessaire */
+  gap: 10px;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  margin-top: 20px;
+}
+
+.secret-gem-photos img {
+  flex: 0 0 auto;        /* Empêche les images de rétrécir */
+  width: 200px;          /* Taille fixe pour que 4 images s’alignent proprement */
+  height: auto;
+}
+
+.secret-gem-photos::-webkit-scrollbar {
+  height: 8px;
+}
+
+.secret-gem-photos::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
     
     /* Grid pour les cards */
     .activities {
@@ -349,7 +360,7 @@
     </div>
     <section class="activities">
       <div class="activity-card">
-        <img src="/images/bbq.jpg" alt="BBQs & Social Nights">
+        <img src="/images/bbqnight.jpg" alt="BBQs & Social Nights">
         <div class="card-content">
           <h3>BBQs & Social Nights</h3>
           <p>Join our weekly BBQs to connect with fellow travelers over good food and good vibes.</p>
@@ -384,7 +395,7 @@
         Whether it's the best sunset view, a peaceful riverside walk, or that perfect beach spot where you'll have the ocean all to yourself – we know all the secret places and can't wait to share them with you.
       </p>
       <!-- Galerie de photos défilante horizontalement -->
-      <div class="photo-slider">
+      <div class="secret-gem-photos">
         <img src="/images/secret1.jpg" alt="Secret Spot 1" />
         <img src="/images/secret2.jpg" alt="Secret Spot 2" />
         <img src="/images/secret3.jpg" alt="Secret Spot 3" />

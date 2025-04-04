@@ -22,50 +22,50 @@
       margin: 0;
       padding: 0;
     }
-    /* Navbar */
+    /* Header / Navbar */
     header {
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.7);
       backdrop-filter: blur(10px);
-      padding: 1rem 2rem;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 100;
+      padding: 1rem;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
-    header nav {
+    nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+      position: relative;
     }
-    header .logo {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #5b3607;
+    nav a {
+      color: #4c3321;
       text-decoration: none;
+      margin-left: 1rem;
+      transition: text-decoration 0.3s;
     }
-    /* Bouton Hamburger */
+    nav a:hover { text-decoration: underline; }
+
+    /* Hamburger menu (hidden on large screens) */
     .hamburger {
       display: none;
       font-size: 2rem;
       cursor: pointer;
     }
-    /* Liens de navigation */
-    header nav ul.nav-links {
-      list-style: none;
+    /* Navigation Links */
+    .nav-links {
       display: flex;
-      gap: 1.5rem;
+      gap: 1rem;
     }
-    header nav ul.nav-links li a {
-      text-decoration: none;
-      color: #5b3607;
-      font-weight: 500;
-      transition: color 0.3s;
+
+    /* White section (Logo + Cards) */
+    .white-section {
+      background-color: white;
+      padding: 0rem 1rem;
     }
-    header nav ul.nav-links li a:hover {
-      color: #a35c4b;
+    .logo-title { text-align: center; }
+    .logo-title img {
+      display: block;
+      margin: 0 auto;
+      width: 230px;
     }
     /* Main Content */
     main {
@@ -137,13 +137,13 @@
       .hamburger {
         display: block;
       }
-      header nav ul.nav-links {
+      .nav-links {
         flex-direction: column;
         width: 100%;
         display: none;
         margin-top: 1rem;
       }
-      header nav ul.nav-links.active {
+      .nav-links.active {
         display: flex;
       }
       main { padding: 100px 1rem 2rem; }
@@ -153,19 +153,23 @@
 <body>
   <!-- Header / Navbar -->
   <header>
-    <nav>
-      <a class="logo" href="index.html">Disini Surfhouse</a>
-      <!-- Bouton Hamburger pour mobile -->
-      <div class="hamburger"><i class="fas fa-bars"></i></div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="activities.html">Activities</a></li>
-        <li><a href="accommodations.html">Accommodations</a></li>
-        <li><a href="surf-coaching.html">Surf Coaching</a></li>
-      </ul>
-    </nav>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <a href="index.html" style="font-size: 1.5rem; font-weight: bold;">𝖣𝖨𝖲𝖨𝖭𝖨 𝖲𝖴𝖱𝖥𝖧𝖮𝖴𝖲𝖤</a>
+        </div>
+        <!-- Hamburger for Mobile -->
+        <div class="hamburger"><i class="fas fa-bars"></i></div>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="accommodations.html">Accommodations</a>
+          <a href="surf-coaching.html">Surf Coaching</a>
+          <a href="activities.html">Activities</a>
+        </div>
+      </nav>
+    </div>
   </header>
-  
+
   <!-- Main Content -->
   <main>
     <div class="contact-container">
@@ -177,7 +181,7 @@
       </div>
     </div>
   </main>
-  
+
   <!-- Footer -->
   <footer>
     <div class="social-icons">
@@ -187,7 +191,7 @@
     </div>
     <p>© 2025 Disini Surfhouse. All rights reserved.</p>
   </footer>
-  
+
   <!-- Script pour le menu hamburger -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {

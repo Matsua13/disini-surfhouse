@@ -129,8 +129,8 @@
        Minimalistic Content Sections
     ---------------------------- */
     .section {
-      margin: 2rem 0;
-      padding: 1rem 0;
+      /* margin: 0rem 0; */
+      /* padding: 1rem 0; */
       border-bottom: 1px solid #e0e0e0;
     }
     .section:last-child { border-bottom: none; }
@@ -178,18 +178,22 @@ section {
 
 section .side-image {
   width: 100%;
-  max-width: 400px; /* Réduit la taille de l'image */
+  max-width: 600px; /* Réduit la taille de l'image */
   margin: 0 auto 1rem; /* Centre l'image horizontalement */
   margin-top: 20px;
 }
 
-section .side-image img {
+section .side-image video {
   width: 100%;
+  max-width: 100%; /* Assure une largeur uniforme */
+  height: auto; /* Fixe une hauteur identique */
   border-radius: 5px;
+  object-fit: cover; /* Ajuste l'image pour bien occuper l'espace */
   transition: transform 0.3s ease;
+  pointer-events: none; /* Désactive les interactions */
 }
 
-section .side-image img:hover {
+section .side-image video:hover {
   transform: scale(1.02);
 }
 
@@ -217,7 +221,7 @@ section .text {
 .gallery-container img {
   width: 100%;
   max-width: 350px; /* Taille maximale des images */
-  height: 200px; /* Définit une hauteur uniforme pour toutes les images */
+  height: 250px; /* Définit une hauteur uniforme pour toutes les images */
   border-radius: 5px;
   object-fit: cover; /* Coupe l'image pour qu'elle occupe bien l'espace */
   transition: transform 0.3s ease;
@@ -328,7 +332,7 @@ section .text {
     .logo-title img {
       display: block;
       margin: 0 auto;
-      width: 150px;
+      width: 250px;
     }
 
     /* ---------------------------
@@ -378,6 +382,18 @@ section .text {
     @media (max-width: 768px) {
       /* Ici on peut ajouter d'autres ajustements spécifiques si nécessaire */
     }
+    @media (max-width: 768px) {
+  .gallery-container {
+    flex-direction: column; /* Empile les images verticalement */
+    align-items: center;
+  }
+
+  .gallery-container img {
+    max-width: 90%; /* Réduit la largeur des images pour qu'elles tiennent dans l'écran */
+    height: auto; /* Garde le ratio de l'image */
+  }
+}
+
   </style>
 </head>
 <body>
@@ -431,7 +447,10 @@ section .text {
         At Disini Surf House, our team of experienced and passionate surf instructors is here to help you progress and make the most of your surf experience. Whether you’re a total beginner or an advanced surfer looking to fine-tune your skills, our instructors are ready to guide you every step of the way.
       </p>
       <div class="side-image">
-        <img src="/images/surf-instructors.jpg" alt="Surfing lifestyle">
+        <video autoplay loop muted>
+          <source src="/videos/drone1.mov" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       </div>
     </section>
     <section class="section" data-aos="fade-up" data-aos-delay="150">
@@ -462,7 +481,7 @@ section .text {
       <p><strong>Ready to hit the waves with our amazing instructors?</strong> Send us a message or book directly using the calendar below.</p>
       <div id="calendar" data-aos="zoom-in"></div>
     </section>
-    
+
     <!-- FOOTER (identique à Surf Coaching) -->
     <footer>
       <div class="social-icons">
@@ -491,7 +510,7 @@ section .text {
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 800, once: true });
-    
+
     // Révélation du contenu (popup -> contenu)
     function reveal() {
       document.getElementById('popup').style.display = 'none';
