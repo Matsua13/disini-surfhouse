@@ -535,7 +535,7 @@ section .text {
           dateClick(info) {
             const lvl = prompt("Enter surf level (beginner, intermediate, advanced):", "beginner");
             if (lvl && lvl.trim() !== "") {
-              window.open(`https://wa.me/+6285338087224?text=${encodeURIComponent(`Book surf lesson on ${info.dateStr}. Level: ${lvl}`)}`, '_blank');
+              window.open(`https://wa.me/+6285338087224?text=${encodeURIComponent(`Hi! I'd like to book a surf lesson on ${info.dateStr}. My level is: ${lvl}. Are you available?`)}`, '_blank');
             }
           }
         }).render();
