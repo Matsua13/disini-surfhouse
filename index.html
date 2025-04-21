@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Disini Surfhouse - Home</title>
+  <link rel="preload" href="/images/logo.png" as="image">
 
   <meta name="description" content="Disini Surfhouse - Your Bali Surf Escape. Enjoy a cozy surf home stay in Yeh Sumbul, Bali, with surf coaching, live forecasts, and a vibrant community." />
   <meta name="keywords" content="Bali, Surfhouse, Surf Coaching, Yeh Sumbul, Bali Surf, Surf Escape, Medewi, Disini Surfhouse" />
@@ -38,7 +39,10 @@
       Your browser does not support the video tag.
     </video>
     <div class="overlay"></div>
-    <nav>
+    <nav class="desktop-nav">
+      <div class="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
       <!-- <div class="nav-logo">
         <img src="/images/logo.png" alt="Logo Disini Surfhouse" style="width:4rem; height:auto;" />
       </div> -->
@@ -51,12 +55,14 @@
         <li><a href="contact-us.html">Contact us</a></li>
       </ul>
       <div class="mobile-nav">
+        <div class="mobile-nav-links">
         <a href="index.html">Home</a>
         <a href="activities.html">Activities</a>
         <a href="accommodations.html">Accommodations</a>
         <a href="surf-coaching.html">Surf Coaching</a>
         <a href="contact-us.html">Contact Us</a>
       </div>
+    </div>
     </nav>
     <div class="center-content">
       <img src="/images/logo.png" alt="Logo Disini Surfhouse" />
@@ -148,19 +154,20 @@
   <section id="forecast">
     <div class="container">
       <h2>Surfline Live Forecast - Medewi Beach</h2>
-      <iframe class="surf-forecast" src="https://www.surfline.com/surf-report/medewi-beach/5842041f4e65fad6a7708d43" frameborder="0" allowfullscreen loading="lazy"></iframe>
+      <iframe class="surf-forecast" src="https://www.surfline.com/surf-report/medewi-beach/5842041f4e65fad6a7708d43" frameborder="0" allowfullscreen loading="lazy"   title="Surf forecast of Medewi Beach via Surfline"
+      ></iframe>
     </div>
   </section>
 
   <footer>
     <div class="social-icons">
-      <a href="https://www.instagram.com/disini_surfhouse/" target="_blank">
+      <a href="https://www.instagram.com/disini_surfhouse/" target="_blank" aria-label="Suivez-nous sur Instagram">
         <i class="fab fa-instagram"></i>
       </a>
-      <a href="https://www.tiktok.com/@disini.surfhouse" target="_blank">
+      <a href="https://www.tiktok.com/@disini.surfhouse" target="_blank" aria-label="Suivez-nous sur TikTok">
         <i class="fab fa-tiktok"></i>
       </a>
-      <a href="https://wa.me/+6285338087224" target="_blank">
+      <a href="https://wa.me/+6285338087224" target="_blank" aria-label="Contactez-nous sur WhatsApp">
         <i class="fab fa-whatsapp"></i>
       </a>
     </div>
@@ -168,7 +175,7 @@
   </footer>
 
     <!-- Bouton WhatsApp positionné en bas à droite -->
-    <a class="whatsapp-btn" href="https://wa.me/+6285338087224" target="_blank" rel="noopener noreferrer">
+    <a class="whatsapp-btn" href="https://wa.me/+6285338087224" target="_blank" rel="noopener noreferrer" aria-label="Contactez-nous sur WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 

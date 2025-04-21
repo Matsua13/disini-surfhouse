@@ -14,9 +14,16 @@ header {
   }
   
   header nav {
-    display: flex;
-    justify-content: space-between;
+    position: absolute; /* Pour le positionner au-dessus de la vidéo */
+    z-index: 30;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex; /* Pour aligner le hamburger et la nav mobile */
+    justify-content: center; /* Centre le hamburger */
     align-items: center;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3); /* Fond semi-transparent */
   }
   
   header .logo {
@@ -24,6 +31,8 @@ header {
     font-weight: 700;
     color: #5b3607;
     text-decoration: none;
+    position: absolute; /* Pour le repositionner si nécessaire */
+    left: 1rem;
   }
   
   header nav ul {
@@ -32,31 +41,141 @@ header {
     gap: 1.5rem;
   }
   
-  /* Mobile navbar effect */
+/* Mobile navbar effect */
+.mobile-nav {
+  display: none;
+  position: absolute; /* Pour le faire apparaître par-dessus le contenu */
+  top: 100%; /* Le positionner juste en dessous de la nav */
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Fond plus sombre pour le menu mobile */
+  flex-direction: column;
+  align-items: center; /* Centre les liens horizontalement */
+  padding: 1rem 0;
+  z-index: 31; /* Au-dessus de la nav principale */
+}
+
+.mobile-nav.active {
+  display: flex;
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+}
+
+.mobile-nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 0.75rem 0; /* Ajout d'un peu de padding vertical pour l'espacement et la zone de clic */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Ajout d'une légère séparation entre les liens */
+}
+
+.hamburger {
+  display: none; /* Afficher sur mobile */
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+  z-index: 31; /* Au-dessus du fond de la nav */
+}
+  
+/* Media Query pour mobile */
+@media (max-width: 768px) {
+  header {
+    justify-content: center; /* Centre le contenu de l'header (le bouton hamburger) */
+    align-items: flex-start; /* Aligne le contenu en haut */
+    padding-top: 1rem; /* Ajoute de l'espace en haut */
+  }
+  .desktop-nav ul { /* Cibler la ul à l'intérieur de .desktop-nav */
+    display: none !important;
+  }
+  .desktop-nav { /* Cibler la balise nav desktop elle-même pour enlever les styles */
+    background: none;
+    padding: 0;
+    border-bottom: none;
+    text-align: left;
+  }
+  .hamburger {
+    display: block; /* S'assurer qu'il est bien affiché */
+    position: fixed; /* Utiliser position fixed pour le sortir du flux normal */
+    top: 1rem;      /* Positionner à 1rem du haut de la fenêtre */
+    left: 50%;     /* Centrer horizontalement */
+    transform: translateX(-50%); /* Ajuster pour un centrage précis */
+    z-index: 102; /* Pour être au-dessus du menu mobile */
+  }
   .mobile-nav {
-    display: none;
+    display: none; /* Initialement caché */
+    position: fixed; /* Important pour le positionner par rapport à la fenêtre */
+    top: 3rem;      /* Positionner en dessous du hamburger (ajuste si nécessaire) */
+    left: 50%;     /* Centrer horizontalement */
+    transform: translateX(-50%); /* Ajuster pour un centrage précis */
+    width: 80%;     /* Définir une largeur pour le menu (ajuste si nécessaire) */
+    background: transparent; /* Le fond est géré par .mobile-nav.active */
+    z-index: 101; /* Pour être au-dessus du contenu principal */
+    border-radius: 5px; /* Optionnel */
+    padding: 1rem; /* Optionnel */
+  }
+
+  .mobile-nav.active {
+    display: flex; /* Affiché quand la classe 'active' est ajoutée */
+    flex-direction: column; /* Les liens s'affichent verticalement */
+    align-items: center; /* Centre les liens horizontalement */
+    background: rgba(128, 128, 128, 0.3); /* Fond gris semi-transparent */
+    top: 3rem;      /* Redéfinir la position top ici aussi pour plus de clarté */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    padding: 1rem;
+    border-radius: 5px;
+  }
+
+  .mobile-nav.active .mobile-nav-links { /* Cibler les liens lorsque le menu est actif */
+    display: flex;
     flex-direction: column;
     gap: 1rem;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
   }
-  
-  .hamburger {
-    display: none;
-    font-size: 2rem;
-    cursor: pointer;
+  .mobile-nav.active .mobile-nav-links a { /* Les styles des liens eux-mêmes */
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    width: 100%; /* S'assurer que les liens prennent toute la largeur du conteneur */
+    display: block; /* Rendre les liens des blocs pour qu'ils prennent toute la largeur et que text-align: center fonctionne */
   }
-  
-  /* Media Query pour mobile */
-  @media (max-width: 768px) {
-    header nav ul {
-      display: none; /* Masquer le menu sur mobile */
-    }
-    .hamburger {
-      display: block;
-    }
-    .mobile-nav.active {
-      display: flex;
-    }
+  .mobile-nav.active .mobile-nav-links a:last-child {
+    border-bottom: none;
   }
+
+  .hero-container {
+    height: 100vh; /* Prend toute la hauteur */
+    width: 100vw; /* Prend toute la largeur de la fenêtre (viewport width) */
+    position: relative; /* Important pour positionner la vidéo absolument à l'intérieur */
+    overflow: hidden; /* Empêche le défilement si la vidéo dépasse légèrement */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centre le contenu verticalement */
+    align-items: center; /* Centre le contenu horizontalement */
+  }
+  .center-content {
+    position: relative; /* Pour le positionner correctement dans le flex container */
+    z-index: 10;
+  }
+  section {
+    padding-top: 2rem;
+  }
+  .scroll-down {
+    z-index: 31; /* S'assurer qu'il est au-dessus du fond de la nav */
+  }
+}
   
   @font-face {
     font-family: 'Montserrat';
@@ -188,7 +307,7 @@ nav ul li a:hover {
 }
 /* Bouton WhatsApp */
 .whatsapp-btn {
-  position: absolute;
+  position: fixed;
   bottom: 5rem;
   right: 4rem;
   display: flex;
@@ -285,7 +404,7 @@ footer {
   border-top: 1px solid #e0e0e0;
   margin-top: 40px;
   font-size: 0.9rem;
-  color: #777;
+  color: #555;
 }
 footer .social-icons {
   display: flex;
